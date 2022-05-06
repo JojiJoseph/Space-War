@@ -17,3 +17,11 @@ There are satellites that shoot bullets.
 1 - Common
 2 - Player
 3 - Enemy
+
+# Thanks
+
+background music - mixkit-to-the-next-round-1047.mp3 - To the Next Round by Michael Ramir C.
+
+# Things learned
+
+AudioStreamPlayer loops mp3 but AudioStreamPlayer2D won't
