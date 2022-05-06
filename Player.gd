@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
@@ -16,3 +16,6 @@ func _ready():
 #	pass
 func _process(delta):
 	look_at(get_global_mouse_position())
+	if Input.is_action_pressed("forward"):
+		var delta_position = (get_global_mouse_position()-global_position)*delta;
+		move_and_collide(delta_position)
