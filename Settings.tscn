@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://mixkit-to-the-next-round-1047.mp3" type="AudioStream" id=1]
+[ext_resource path="res://Settings.gd" type="Script" id=2]
+[ext_resource path="res://sound/SUCCESS PICKUP Collect Chime 01.ogg" type="AudioStream" id=3]
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BackButton" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+rect_rotation = -0.373062
+text = "Back"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "Music"
+
+[node name="SFX Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+columns = 3
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_top = 1.0
+margin_right = 91.0
+margin_bottom = 15.0
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="GridContainer"]
+margin_left = 95.0
+margin_right = 912.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="MusicVolume" type="Label" parent="GridContainer"]
+margin_left = 916.0
+margin_top = 1.0
+margin_right = 924.0
+margin_bottom = 15.0
+text = "0"
+
+[node name="Label2" type="Label" parent="GridContainer"]
+margin_top = 21.0
+margin_right = 91.0
+margin_bottom = 35.0
+text = "SFX Volume"
+
+[node name="HSlider2" type="HSlider" parent="GridContainer"]
+margin_left = 95.0
+margin_top = 20.0
+margin_right = 912.0
+margin_bottom = 36.0
+
+[node name="SfxVolume" type="Label" parent="GridContainer"]
+margin_left = 916.0
+margin_top = 21.0
+margin_right = 924.0
+margin_bottom = 35.0
+text = "0"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_Button_pressed"]
+[connection signal="focus_entered" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
+[connection signal="focus_exited" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_exited"]
+[connection signal="value_changed" from="GridContainer/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="GridContainer/HSlider2" to="." method="_on_HSlider2_value_changed"]

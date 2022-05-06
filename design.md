@@ -11,6 +11,7 @@ There are satellites that shoot bullets.
 # TODO
 [] Speed is limited mouse position. So give a powerup to boost the speed
 [] Add a settings section to enable fixed speed for left and right movement
+[] Add a settings section to chanage volume and mute the background music
 
 # Collision Layers
 
