@@ -18,4 +18,6 @@ func _ready():
 	
 func _process(_delta):
 	if game_over == true:
+		if player:
+			player.hide()
 		get_tree().paused = true

@@ -20,5 +20,4 @@ collision_mask = 8
 position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
-[connection signal="area_entered" from="BulletHitBox" to="." method="_on_BulletHitBox_area_entered"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_BulletHitBox_body_entered"]
