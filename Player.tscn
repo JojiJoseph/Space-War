@@ -15,3 +15,9 @@ limit_left = -2147483648
 limit_top = -2147483648
 limit_right = 2147483647
 limit_bottom = 2147483647
+
+[node name="BulletPositionLeft" type="Position2D" parent="."]
+position = Vector2( 0, -20 )
+
+[node name="BulletPositionRight" type="Position2D" parent="."]
+position = Vector2( 0, 20 )

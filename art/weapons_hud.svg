@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="125"
+   height="64"
+   viewBox="0 0 33.0725 16.93312"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (1:1.1+202109281949+c3084ef5ed)"
+   sodipodi:docname="weapons_hud.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="false"
+     units="px"
+     width="64px"
+     inkscape:zoom="11.288889"
+     inkscape:cx="93.853347"
+     inkscape:cy="37.426181"
+     inkscape:window-width="1920"
+     inkscape:window-height="964"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     objecttolerance="20">
+    <sodipodi:guide
+       position="16.640415,8.5426006"
+       orientation="1,0"
+       id="guide843" />
+    <sodipodi:guide
+       position="25.312181,16.93312"
+       orientation="0,-1"
+       id="guide1085" />
+    <sodipodi:guide
+       position="-0.046874411,1.1780846"
+       orientation="1,0"
+       id="guide1087" />
+    <sodipodi:guide
+       position="33.032911,21.323674"
+       orientation="1,0"
+       id="guide1091" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458;stroke-opacity:1"
+       id="path945"
+       cx="8.4665604"
+       cy="8.4665604"
+       r="2.9967015" />
+    <circle
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458;stroke-opacity:1"
+       id="circle925"
+       cx="22.554758"
+       cy="6.024363"
+       r="2.9967015" />
+    <circle
+       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458;stroke-opacity:1"
+       id="circle927"
+       cx="27.726887"
+       cy="11.296316"
+       r="2.9967015" />
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.267322;stroke-opacity:1"
+       id="rect959"
+       width="16.693491"
+       height="16.765688"
+       x="-0.04212771"
+       y="0.17261066" />
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.263485;stroke-opacity:1"
+       id="rect1089"
+       width="16.217751"
+       height="16.765688"
+       x="16.651363"
+       y="0.17261066" />
+  </g>
+</svg>

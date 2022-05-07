@@ -28,12 +28,31 @@ stream = ExtResource( 3 )
 autoplay = true
 bus = "Music"
 
-[node name="GUI" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="PauseScreen" type="ColorRect" parent="GUI"]
+[node name="PauseScreen" type="ColorRect" parent="HUD"]
 pause_mode = 2
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0.196078 )
 script = ExtResource( 5 )
+
+[node name="WeaponIndicator" type="VBoxContainer" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -84.0
+margin_right = 84.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/WeaponIndicator"]
+margin_right = 84.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Count" type="Label" parent="HUD/WeaponIndicator"]
+margin_top = 70.0
+margin_right = 84.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+align = 1
