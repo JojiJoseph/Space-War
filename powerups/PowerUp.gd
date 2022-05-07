@@ -4,7 +4,8 @@ enum {
 	DOUBLE,
 	KILL_ALL,
 	HEALTH,
-	MISSILE
+	MISSILE,
+	ARMOUR
 }
 
 export(int) var power = DOUBLE
@@ -13,7 +14,8 @@ var powerup_sprites = [
 	preload("res://art/power_ups/power_up_double.svg"),
 	preload("res://art/power_ups/power_up_kill_all.svg"),
 	preload("res://art/power_ups/power_up_life.svg"),
-	preload("res://art/power_ups/power_up_missile.svg")
+	preload("res://art/power_ups/power_up_missile.svg"),
+	preload("res://art/power_ups/power_up_armour.svg")
 ]
 
 func _ready():

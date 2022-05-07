@@ -7,6 +7,7 @@ var direction = Vector2(1,0)
 var velocity = 600
 
 var since_last_fire = 0
+var armour_elapsed = 100
 
 var health = 100
 
@@ -109,9 +110,14 @@ func _process(delta):
 				since_last_fire = 0
 				if not $AudioStreamPlayer2D.playing:
 					$AudioStreamPlayer2D.play()
-			
+	if 0 <= armour_elapsed and armour_elapsed <= 20:
+		$ArmourBar.show()
+		$ArmourBar.value = 100 - armour_elapsed/20*100
+	else:
+		$ArmourBar.hide()
 	$HealthBar.value = health
 	since_last_fire += delta
+	armour_elapsed += delta
 		
 func _input(_event):
 	if Input.is_action_just_pressed("prev_weapon"):
@@ -153,6 +159,9 @@ func _on_PowerUpAreaBox_area_entered(area):
 		Global.score += 100
 		bullets_available[MISSILE] = max(bullets_available[MISSILE]+10, 50)
 		current_gun = MISSILE
+	elif area.power== area.ARMOUR:
+		Global.score += 100
+		armour_elapsed = 0
 	area.queue_free()
 
 
@@ -161,7 +170,8 @@ func _on_PowerUpAreaBox_area_entered(area):
 func _on_BulletHitBox_body_entered(body):
 	if body.from == "enemy":
 		body.queue_free()
-		health -= 5
+		if armour_elapsed < 20:
+			health -= body.damage / 2
 	if health <= 0:
 		body.queue_free()
 		#queue_free()

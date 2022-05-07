@@ -6,9 +6,9 @@ extends Node2D
 # var b = "text"
 
 var gun_indicator_sprites = [
-	preload("res://art/bullet.svg"),
-	preload("res://art/double_barrel_indicator.svg"),
-	preload("res://art/missile.svg")
+	preload("res://art/weapon_hud/bullet.svg"),
+	preload("res://art/weapon_hud/double.svg"),
+	preload("res://art/weapon_hud/missile.svg")
 ]
 var noise_generator = OpenSimplexNoise.new()
 var visited = {}
@@ -17,7 +17,8 @@ var Enemy = preload("res://EnemyShip.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_ARROW,Vector2(8,8))
+	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_CROSS,Vector2(8,8))
+	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 
 	noise_generator.period = 16
 
@@ -36,8 +37,6 @@ func _process(_delta):
 	if Global.game_over:
 		$HUD/PauseScreen.show()
 		get_tree().paused = true
-	if Input.is_action_pressed("exit"):
-		get_tree().change_scene("res://Menu.tscn")
 	if Global.player:
 		repopulate()
 		$HUD/WeaponIndicator/TextureRect.texture = gun_indicator_sprites[Global.player.current_gun]

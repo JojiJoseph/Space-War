@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933332 16.933332"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (1:1.1+202109281949+c3084ef5ed)"
+   sodipodi:docname="power_up_armour.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="32px"
+     units="px"
+     inkscape:zoom="3.9912249"
+     inkscape:cx="-2.881321"
+     inkscape:cy="14.156055"
+     inkscape:window-width="1920"
+     inkscape:window-height="964"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="-12.727921,8.3817599"
+       orientation="1,0"
+       id="guide1436" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:0.2;stroke:#000000;stroke-width:0.52916667;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect846"
+       width="16.586639"
+       height="16.607494"
+       x="0.17089416"
+       y="0.16743062"
+       ry="0" />
+    <g
+       id="g2267"
+       transform="matrix(0.76539992,0,0,0.76539992,18.266803,4.2436168)">
+      <path
+         style="fill:#550000;stroke:#000000;stroke-width:0.261981px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m -4.9292798,0.56462642 c -4.0965973,-0.63589858 -4.4903085,-1.01435067 -7.7991932,-2.57378092 -3.373004,1.48037716 -3.777132,1.9375847 -7.956197,2.5733778 0.779436,6.4390386 0.01035,12.0769757 7.956197,12.5043197 7.7890474,-0.424938 7.0351386,-6.0638097 7.7991932,-12.50391658 z"
+         id="path955"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+  </g>
+</svg>
