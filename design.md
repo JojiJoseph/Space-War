@@ -25,7 +25,7 @@ There are satellites that shoot bullets.
     [x] Missile
     [] Laser Gun
 [] Player
-    [] Health bar
+    [x] Health bar
     [] Skew on sidewards movement
 
 

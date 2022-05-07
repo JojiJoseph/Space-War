@@ -40,6 +40,7 @@ func _process(delta):
 				get_parent().add_child((bullet))
 			since_last_fire = 0
 		since_last_fire += delta
+		$HealthBar.value = health
 	
 
 

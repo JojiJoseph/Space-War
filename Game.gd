@@ -16,13 +16,9 @@ var visited = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_ARROW,Vector2(8,8))
-	#Input.set_default_cursor_shape(Input.CURSOR_CROSS)
-	# Experimenting with open simplex noise
+
 	noise_generator.period = 16
-	var image_texture = ImageTexture.new()
-	image_texture.create_from_image(noise_generator.get_image(64, 64))
-	#noise_generator.get_image(64,64).save_png("./tile_generic.png")
-	#$OpenSimplexNoiseTest.texture = image_texture
+
 	visited[[0,0]] = 1
 	for i in 100:
 		for j in 100:
@@ -48,12 +44,7 @@ func _process(_delta):
 		$Camera2D.global_position = Global.player.global_position 
 		
 func repopulate():
-	# Repopulate the contents of the tilemap
-	# Find player coordinate
-	# For each coordinate in tilemap:
-	# If it is a particular distance away from player, remove tiles
-	# For each neighourhood in player visinity,
-	# 	if it is not tilemap, create a perlin noise and remove all
+
 	var player = Global.player
 	var xy = Global.player.global_position/64
 	xy = [floor(xy[0]),floor(xy[1])]
