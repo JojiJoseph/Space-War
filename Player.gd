@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var Bullet = preload("res://Bullet.tscn")
+var Missile = preload("res://Missile.tscn")
 
 var direction = Vector2(1,0)
 var velocity = 400
@@ -14,10 +15,11 @@ var health = 100
 # var b = "text"
 enum {
 	NORMAL_GUN,
-	DOUBLE_BARREL
+	DOUBLE_BARREL,
+	MISSILE
 }
 var gun_idx = 0
-var bullets_available = [-1, 100]
+var bullets_available = [-1, 100, 20]
 var current_gun = NORMAL_GUN
 
 
@@ -30,6 +32,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
+	#print(health)
 	look_at(get_global_mouse_position())
 	direction = (get_global_mouse_position()-global_position).normalized()
 	if Input.is_action_pressed("forward"):
@@ -70,7 +73,30 @@ func _process(delta):
 					get_parent().add_child((bullet))
 					get_parent().add_child((bullet2))
 					bullets_available[current_gun] -= 1
-					print(bullets_available)
+					#print(bullets_available)
+					since_last_fire = 0
+					if not $AudioStreamPlayer2D.playing:
+						$AudioStreamPlayer2D.play()
+		if Input.is_action_just_pressed("fire"):
+			if current_gun == MISSILE:
+				if bullets_available[current_gun] <= 0:
+					select_next_gun()
+				if since_last_fire > 0.4 and bullets_available[current_gun] > 0:
+					var missile = Missile.instance()
+					var bullet_position = null
+					if randf() < 0.5:
+						bullet_position = $BulletPositionLeft.global_position
+					else:
+						bullet_position = $BulletPositionRight.global_position
+					var direction = (get_global_mouse_position() - bullet_position).normalized()
+					missile.direction = direction
+					missile.global_position = bullet_position
+					get_parent().add_child(missile)
+					missile.look_at(get_global_mouse_position())
+					missile.global_rotation = missile.global_rotation + PI/2
+
+					bullets_available[current_gun] -= 1
+
 					since_last_fire = 0
 					if not $AudioStreamPlayer2D.playing:
 						$AudioStreamPlayer2D.play()
@@ -78,12 +104,12 @@ func _process(delta):
 	
 	since_last_fire += delta
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("prev_weapon"):
 		select_next_gun()
 	if Input.is_action_just_pressed("next_weapon"):
 		select_prev_gun()
-	print(current_gun)
+	#print(current_gun)
 
 func select_next_gun():
 	current_gun += 1
@@ -106,11 +132,19 @@ func select_prev_gun():
 
 
 func _on_PowerUpAreaBox_area_entered(area):
-	if area.power == "double":
+	if area.power == area.DOUBLE:
 		Global.score += 100
-		bullets_available[DOUBLE_BARREL] = 100
+		#bullets_available[DOUBLE_BARREL] = 100
+		bullets_available[DOUBLE_BARREL] = max(bullets_available[DOUBLE_BARREL]+100, 500)
 		current_gun = DOUBLE_BARREL
-		area.queue_free()
+	elif area.power== area.HEALTH:
+		Global.score += 100
+		health = 100
+	elif area.power== area.MISSILE:
+		Global.score += 100
+		bullets_available[MISSILE] = max(bullets_available[MISSILE]+10, 50)
+		current_gun = MISSILE
+	area.queue_free()
 
 
 

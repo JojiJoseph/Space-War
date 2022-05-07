@@ -7,7 +7,8 @@ extends KinematicBody2D
 export(Vector2) var direction = Vector2(1,0)
 export(float) var velocity = 1000
 export var from = "player"
-export var damage = 10
+export var damage = 50
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

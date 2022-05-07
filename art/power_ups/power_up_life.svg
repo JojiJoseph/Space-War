@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="64"
+   height="64"
+   viewBox="0 0 16.933332 16.933332"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (1:1.1+202109281949+c3084ef5ed)"
+   sodipodi:docname="power_up_life.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="32px"
+     units="px"
+     inkscape:zoom="5.6444444"
+     inkscape:cx="36.584646"
+     inkscape:cy="53.415355"
+     inkscape:window-width="1920"
+     inkscape:window-height="964"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:0.2;stroke:#000000;stroke-width:0.52916667;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect846"
+       width="16.586639"
+       height="16.607494"
+       x="0.17089416"
+       y="0.16743062"
+       ry="0" />
+    <path
+       id="path1713"
+       style="fill:#ff0000;stroke:#000000;stroke-width:0.832887"
+       d="m 14.482113,7.5903573 c -0.552675,3.3480207 -2.966726,7.2489417 -6.2230238,7.2489417 -3.256298,0 -6.1296589,-3.838387 -6.2041978,-7.2396826 -0.1805706,-8.23964867 4.1268539,-6.585739 6.502879,-0.9325739 3.0191576,-8.764963 6.6269846,-3.3331882 5.9243426,0.9233148 z"
+       sodipodi:nodetypes="ssscs" />
+  </g>
+</svg>

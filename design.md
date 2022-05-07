@@ -9,25 +9,49 @@ There are buildings.
 There are satellites that shoot bullets.
 
 # TODO
-[] Speed is limited mouse position. So give a powerup to boost the speed
-[] Add a settings section to enable fixed speed for left and right movement
 [x] Add a settings section to chanage volume and mute the background music
 [] Powerups
     [] 2x Speed
+    [x] Health
+    [] Armour
+    [] Explode everything on the way
+    [x] Double barrel ammo proper power up image
+    [x] Missile Powerup
 [] Power up counter
 
 [] Guns
     [x] Normal Gun
-    [] Double barrel
-    [] Shot Gun
+    [x] Double barrel
+    [x] Missile
+    [] Laser Gun
 [] Player
-    [] Health
+    [] Health bar
+    [] Skew on sidewards movement
+
+
+[] Environment
+    [] Add blocks, housing turrets
+    [] Satellites
+
+[] Misc
+ [x] Explosion
+ [x] Explosion Sound
+
+[] UI
+    [] Bulletmeter
+
+[] Procedural Logic
+    [] Increase difficulty based on distance
+    [] Spawn buildings
+
 
 # Collision Layers
 
 1 - Common
 2 - Player
 3 - Enemy
+4 - 
+5 - Powerup
 
 # Check list for anything other than players
 [] Free the resources if they are at a distance 10_000 from player
