@@ -79,7 +79,7 @@ func repopulate():
 					var enemy_ship = Enemy.instance()
 					var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
 					enemy_ship.global_position = position
-					add_child(enemy_ship)
+					$Enemies.add_child(enemy_ship)
 	# Clean up
 	for block in visited:
 		# If manhattan distance >= 8, remove that block

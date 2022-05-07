@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var Bullet = preload("res://Bullet.tscn")
 var Missile = preload("res://Missile.tscn")
+var Explosion = preload("res://Explosion.tscn")
 
 var direction = Vector2(1,0)
 var velocity = 600
@@ -162,6 +163,17 @@ func _on_PowerUpAreaBox_area_entered(area):
 	elif area.power== area.ARMOUR:
 		Global.score += 100
 		armour_elapsed = 0
+	elif area.power== area.KILL_ALL:
+		Global.score += 100
+		for enemy in get_parent().get_node("Enemies").get_children():
+			var pos = enemy.global_position
+			if (global_position - pos).length() < 12000:
+				var explosion = Explosion.instance()
+				explosion.global_position = pos
+				enemy.queue_free()
+				get_parent().add_child(explosion)
+				
+				
 	area.queue_free()
 
 
@@ -170,7 +182,7 @@ func _on_PowerUpAreaBox_area_entered(area):
 func _on_BulletHitBox_body_entered(body):
 	if body.from == "enemy":
 		body.queue_free()
-		if armour_elapsed < 20:
+		if armour_elapsed > 20:
 			health -= body.damage / 2
 	if health <= 0:
 		body.queue_free()

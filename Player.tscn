@@ -52,6 +52,7 @@ margin_right = 8.0
 rect_scale = Vector2( 0.5, 1 )
 
 [node name="ArmourBar" type="TextureProgress" parent="."]
+visible = false
 margin_left = -96.0
 margin_top = -88.0
 margin_right = -32.0
