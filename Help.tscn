@@ -1,0 +1,167 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Help.gd" type="Script" id=1]
+[ext_resource path="res://art/bg.png" type="Texture" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=3]
+[ext_resource path="res://space_3/SPACE.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 1
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFontData" id=9]
+font_path = "res://space_3/SPACE.ttf"
+
+[sub_resource type="DynamicFont" id=1]
+font_data = SubResource( 9 )
+
+[node name="Help" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 0.0156863, 0, 0.25098, 1 )
+margin_right = 2048.0
+margin_bottom = 1024.0
+texture = ExtResource( 2 )
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -201.0
+margin_top = -91.0
+margin_right = -80.0
+margin_bottom = -25.0
+text = "Back"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 200.0
+margin_top = 102.0
+margin_right = -200.0
+margin_bottom = -98.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 612.0
+margin_bottom = 755.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 612.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "How To Play"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 31.0
+margin_right = 612.0
+margin_bottom = 107.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/bold_italics_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "
+Press [b]WASD[/b] or [b]arrow[/b] keys to move the player. Use mouse pointer to give direction."
+text = "
+Press WASD or arrow keys to move the player. Use mouse pointer to give direction."
+fit_content_height = true
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 111.0
+margin_right = 612.0
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+text = "Credit
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 172.0
+margin_right = 612.0
+margin_bottom = 268.0
+custom_fonts/bold_italics_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "
+Created by [b][url=https://jojijoseph.itch.io/]Joji[/url][/b]
+
+"
+text = "
+Created by Joji
+
+"
+fit_content_height = true
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 272.0
+margin_right = 612.0
+margin_bottom = 295.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Acknowledgements"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 299.0
+margin_right = 612.0
+margin_bottom = 755.0
+focus_mode = 2
+custom_fonts/bold_italics_font = SubResource( 7 )
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[b]ART[/b]
+[b] Explosion Sprites [/b] - [url]https://xyezawr.itch.io/free-pixel-effects-pack-4-explosions[\\url]
+
+[b]Font[/b]
+
+Space 3 - [url]https://www.dafont.com/space-3.font[/url]
+
+[b]Sound effects[/b]
+
+[url]https://kronbits.itch.io/freesfx[/url]
+[url]http://www.gameburp.com/free-game-sound-fx/[/url]
+
+[b]Background Music[/b]
+To the Next Round by Michael Ramir C. [url]https://mixkit.co/[/url]"
+text = "ART
+ Explosion Sprites  - https://xyezawr.itch.io/free-pixel-effects-pack-4-explosions[\\url]
+
+Font
+
+Space 3 - https://www.dafont.com/space-3.font
+
+Sound effects
+
+https://kronbits.itch.io/freesfx
+http://www.gameburp.com/free-game-sound-fx/
+
+Background Music
+To the Next Round by Michael Ramir C. https://mixkit.co/"
+fit_content_height = true
+selection_enabled = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="meta_clicked" from="ScrollContainer/VBoxContainer/RichTextLabel2" to="." method="_on_RichTextLabel2_meta_clicked"]
+[connection signal="meta_clicked" from="ScrollContainer/VBoxContainer/RichTextLabel3" to="." method="_on_RichTextLabel3_meta_clicked"]

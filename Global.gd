@@ -22,7 +22,7 @@ func _process(_delta):
 	if game_over == true:
 		if player:
 			player.hide()
-		get_tree().paused = true
+		#get_tree().paused = true
 		
 func get_power_up():
 	var choice = randi() % 4

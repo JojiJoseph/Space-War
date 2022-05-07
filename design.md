@@ -38,8 +38,10 @@ There are satellites that shoot bullets.
  [x] Explosion Sound
 
 [] UI
-    [] Score card
-    [] Font
+    [x] Score card
+    [x] Font
+    [] Pause Menu
+    [] Game Over Menu
 
 [] Acknowledge assets
     [] Font

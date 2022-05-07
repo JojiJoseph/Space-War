@@ -16,17 +16,13 @@ func _ready():
 #	pass
 
 
-func _on_StartButton_pressed():
-	get_tree().change_scene("res://Game.tscn")
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://Menu.tscn")
 
 
-func _on_HelpButton_pressed():
-	get_tree().change_scene("res://Help2.tscn")
+func _on_RichTextLabel3_meta_clicked(meta):
+	OS.shell_open(str(meta))
 
 
-func _on_ExitButton_pressed():
-	get_tree().quit()
-
-
-func _on_SettingsButton_pressed():
-	get_tree().change_scene("res://Settings.tscn")
+func _on_RichTextLabel2_meta_clicked(meta):
+	OS.shell_open(str(meta))
