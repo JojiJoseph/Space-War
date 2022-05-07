@@ -79,6 +79,10 @@ prev_weapon={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_5="Power Up"
+
 [physics]
 
 common/enable_pause_aware_picking=true

@@ -6,6 +6,8 @@ var direction = Vector2(1,0)
 
 var since_last_fire = 0
 
+var health = 100
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -96,3 +98,23 @@ func select_prev_gun():
 	
 		
 		
+
+
+func _on_PowerUpAreaBox_area_entered(area):
+	if area.power == "double":
+		Global.score += 100
+		bullets_available[DOUBLE_BARREL] = 100
+		current_gun = DOUBLE_BARREL
+		area.queue_free()
+
+
+
+
+func _on_BulletHitBox_body_entered(body):
+	if body.from == "enemy":
+		body.queue_free()
+		health -= 5
+	if health <= 0:
+		body.queue_free()
+		#queue_free()
+		Global.game_over = true

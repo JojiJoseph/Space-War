@@ -3,6 +3,8 @@ extends Node
 
 var music_volume = 80
 var player = null
+var score = 0
+var game_over = false
 
 enum {
 	NORMAL_GUN,
@@ -13,3 +15,7 @@ var current_gun = NORMAL_GUN
 
 func _ready():
 	pass
+	
+func _process(_delta):
+	if game_over == true:
+		get_tree().paused = true
