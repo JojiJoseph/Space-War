@@ -42,7 +42,7 @@ There are satellites that shoot bullets.
 
 [] Procedural Logic
     [] Increase difficulty based on distance
-    [] Spawn buildings
+    [x] Spawn buildings
 
 
 # Collision Layers

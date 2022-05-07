@@ -15,6 +15,8 @@ var visited = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_ARROW,Vector2(8,8))
+	#Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 	# Experimenting with open simplex noise
 	noise_generator.period = 16
 	var image_texture = ImageTexture.new()
@@ -42,6 +44,8 @@ func _process(_delta):
 			$HUD/WeaponIndicator/Count.text = ""
 		else:
 			$HUD/WeaponIndicator/Count.text = str(Global.player.bullets_available[Global.player.current_gun])
+		$Camera2D.global_rotation = Global.player.global_rotation+ PI/2
+		$Camera2D.global_position = Global.player.global_position 
 		
 func repopulate():
 	# Repopulate the contents of the tilemap
