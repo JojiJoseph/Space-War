@@ -38,11 +38,25 @@ There are satellites that shoot bullets.
  [x] Explosion Sound
 
 [] UI
-    [] Bulletmeter
+    [] Score card
+    [] Font
+
+[] Acknowledge assets
+    [] Font
+    [] Explosion sprites
+    [] SFX
+    [] Music
 
 [] Procedural Logic
     [] Increase difficulty based on distance
     [x] Spawn buildings
+    [x] Spawn enemies
+    [] Spawn turrets 
+    [] Spawn sattelites
+
+[] Gameplay helper
+    [] Decrease the delay of enemy bullets as distance increases
+    [] Increase the prob. of life as distance increases
 
 
 # Collision Layers

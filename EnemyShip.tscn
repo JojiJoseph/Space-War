@@ -22,5 +22,8 @@ position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 3 )]
+margin_left = -32.0
+margin_right = 8.0
+rect_scale = Vector2( 0.5, 1 )
 
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_BulletHitBox_body_entered"]

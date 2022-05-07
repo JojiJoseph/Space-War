@@ -32,3 +32,8 @@ func get_power_up():
 		power_up.power = choice
 		return power_up
 	return null
+	
+func reset():
+	score = 0
+	game_over = false
+	

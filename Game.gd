@@ -13,6 +13,8 @@ var gun_indicator_sprites = [
 var noise_generator = OpenSimplexNoise.new()
 var visited = {}
 
+var Enemy = preload("res://EnemyShip.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_ARROW,Vector2(8,8))
@@ -40,6 +42,7 @@ func _process(_delta):
 			$HUD/WeaponIndicator/Count.text = ""
 		else:
 			$HUD/WeaponIndicator/Count.text = str(Global.player.bullets_available[Global.player.current_gun])
+		$HUD/Score.text = "Score : " + str(Global.score)
 		$Camera2D.global_rotation = Global.player.global_rotation+ PI/2
 		$Camera2D.global_position = Global.player.global_position 
 		
@@ -68,6 +71,13 @@ func repopulate():
 					$TileMap.set_cell(i,j,0)
 				elif ns >= 0.4:
 					$TileMap.set_cell(i,j,1)
+		for i in range(8):
+			for j in range(8):
+				if randf() < 0.2:
+					var enemy_ship = Enemy.instance()
+					var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
+					enemy_ship.global_position = position
+					add_child(enemy_ship)
 	# Clean up
 	for block in visited:
 		# If manhattan distance >= 8, remove that block

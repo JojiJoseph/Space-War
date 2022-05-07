@@ -51,6 +51,9 @@ volume_db = -43.132
 bus = "SFX"
 
 [node name="HealthBar" parent="." instance=ExtResource( 4 )]
+margin_left = -32.0
+margin_right = 8.0
+rect_scale = Vector2( 0.5, 1 )
 
 [connection signal="area_entered" from="PowerUpAreaBox" to="." method="_on_PowerUpAreaBox_area_entered"]
 [connection signal="body_entered" from="BulletHitBox" to="." method="_on_BulletHitBox_body_entered"]

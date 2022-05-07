@@ -18,24 +18,23 @@ func _process(delta):
 		if  distance_to_player > 10_000:
 			queue_free()
 			return
-		if distance_to_player < 1000: # Field of vision
-			look_at(player.global_position)
+		if distance_to_player < 500: # Field of vision
+			$Sprite.look_at(player.global_position)
 			# TODO look at slowly
 			direction = (Global.player.global_position - global_position).normalized()
-		if distance_to_player < 200: # Enemy knows it's dangerous colliding with player
-			direction = -(Global.player.global_position - global_position).normalized()
-		#move_and_collide(direction*velocity*delta)
-		if since_last_fire > 0.4:
-			var prob = randf()
-			if prob > 0.50:
-				var bullet = Bullet.instance()
-				bullet.from = "enemy"
-				bullet.direction = direction
-				bullet.global_position = global_position
-				bullet.global_rotation = global_rotation
-				get_parent().add_child((bullet))
-			since_last_fire = 0
+			#move_and_collide(direction*velocity*delta)
+			if since_last_fire > 0.4:
+				var prob = randf()
+				if prob > 0.50:
+					var bullet = Bullet.instance()
+					bullet.from = "enemy"
+					bullet.direction = direction
+					bullet.global_position = global_position
+					bullet.global_rotation = $Sprite.global_rotation
+					get_parent().add_child((bullet))
+				since_last_fire = 0
 		since_last_fire += delta
+		$HealthBar.value = health
 	
 
 func _on_Turret_body_entered(body):
@@ -52,6 +51,7 @@ func _on_Turret_body_entered(body):
 			power_up.global_position = global_position
 			#get_parent().add_child(power_up)
 			call_deferred("add_power_up", power_up)
+		Global.score += 500
 		body.queue_free()
 		queue_free()
 
