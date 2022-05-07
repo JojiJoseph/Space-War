@@ -3,6 +3,7 @@ extends KinematicBody2D
 var Bullet = preload("res://Bullet.tscn")
 
 var direction = Vector2(1,0)
+var velocity = 400
 
 var since_last_fire = 0
 
@@ -32,10 +33,10 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 	direction = (get_global_mouse_position()-global_position).normalized()
 	if Input.is_action_pressed("forward"):
-		var delta_position = (get_global_mouse_position()-global_position)*delta;
+		var delta_position = (get_global_mouse_position()-global_position).normalized()*velocity*delta;
 		move_and_collide(delta_position)
 	if Input.is_action_pressed("backward"):
-		var delta_position = -(get_global_mouse_position()-global_position)*delta;
+		var delta_position = -(get_global_mouse_position()-global_position).normalized()*velocity*delta;
 		move_and_collide(delta_position)
 	if Input.is_action_pressed("left"):
 		var delta_position = (get_global_mouse_position()-global_position).normalized().rotated(-PI/2) * delta * 400
