@@ -27,7 +27,6 @@ func _process(delta):
 		move_and_collide(direction*velocity*delta)
 		if distance_to_player < 500: # Field of vision
 			look_at(player.global_position)
-			# TODO look at slowly
 			direction = (Global.player.global_position - global_position).normalized()
 			if since_last_fire > 0.4:
 				var prob = randf()
@@ -37,7 +36,7 @@ func _process(delta):
 					bullet.direction = direction
 					bullet.global_position = global_position
 					bullet.global_rotation = global_rotation
-					get_parent().add_child((bullet))
+					get_parent().get_parent().get_node("Bullets").add_child((bullet))
 				since_last_fire = 0
 		since_last_fire += delta
 		$HealthBar.value = health

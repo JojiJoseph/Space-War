@@ -15,6 +15,7 @@ var visited = {}
 
 var Enemy = preload("res://EnemyShip.tscn")
 var KillerSat = preload("res://KillerSat.tscn")
+var CommSat = preload("res://CommSat.tscn")
 var Turret = preload("res://Turret.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -95,6 +96,13 @@ func repopulate():
 						var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
 						killer_sat.global_position = position
 						$Enemies.add_child(killer_sat)
+		for i in range(8):
+			for j in range(8):
+				if randf() < 0.2:
+					var position = Vector2(new_block[0]*64*64 + i * 8 * 64 + randi() % 16,  new_block[1]*64*64 + j * 8 * 64 + randi() % 16)
+					var comm_sat = CommSat.instance()
+					comm_sat.global_position = position
+					$GoodGuys.add_child(comm_sat)
 	# Clean up
 	for block in visited:
 		# If manhattan distance >= 8, remove that block

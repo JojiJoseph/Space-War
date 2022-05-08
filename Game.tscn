@@ -68,8 +68,6 @@ format = 1
 
 [node name="Bullets" type="Node2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
@@ -239,6 +237,10 @@ position = Vector2( 368, -138 )
 
 [node name="CommSat" parent="." instance=ExtResource( 14 )]
 position = Vector2( 287, -43 )
+
+[node name="GoodGuys" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/ResumeButton" to="HUD/PauseScreen" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/RestartButton" to="HUD/PauseScreen" method="_on_RestartButton_pressed"]

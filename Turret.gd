@@ -31,7 +31,7 @@ func _process(delta):
 					bullet.direction = direction
 					bullet.global_position = global_position
 					bullet.global_rotation = $Sprite.global_rotation
-					get_parent().add_child((bullet))
+					get_parent().get_parent().get_node("Bullets").add_child((bullet))
 				since_last_fire = 0
 		since_last_fire += delta
 		$HealthBar.value = health
