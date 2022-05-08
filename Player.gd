@@ -122,9 +122,9 @@ func _process(delta):
 		
 func _input(_event):
 	if Input.is_action_just_pressed("prev_weapon"):
-		select_next_gun()
-	if Input.is_action_just_pressed("next_weapon"):
 		select_prev_gun()
+	if Input.is_action_just_pressed("next_weapon"):
+		select_next_gun()
 	#print(current_gun)
 
 func select_next_gun():

@@ -26,7 +26,7 @@ func _process(delta):
 			# TODO look at slowly
 			var direction = (Global.player.global_position - global_position).normalized()
 			#move_and_collide(direction*velocity*delta)
-			if since_last_fire > 0.4:
+			if since_last_fire > 0.1 + randf()*0.2:
 				var prob = randf()
 				if prob > 0.50:
 					var bullet = Bullet.instance()

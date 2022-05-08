@@ -25,15 +25,21 @@ func _ready():
 	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 
 	noise_generator.period = 16
-
-	visited[[0,0]] = 1
-	for i in 100:
-		for j in 100:
-			var ns = noise_generator.get_noise_2d(i, j)
-			if 0.0 < ns and ns < 0.4:
-				$TileMap.set_cell(i,j,0)
-			elif ns >= 0.4:
-				$TileMap.set_cell(i,j,1)
+	
+	for block in [[0,0],[0,-1],[-1,-1],[-1,0]]: 
+		visited[Vector2(block[0], block[1])] = block
+	#print(visited.keys())
+#	visited[[0,-1]] = 1
+#	visited[[-1,0]] = 1
+#	visited[[-1,-1]] = 1
+	
+#	for i in 100:
+#		for j in 100:
+#			var ns = noise_generator.get_noise_2d(i, j)
+#			if 0.0 < ns and ns < 0.4:
+#				$TileMap.set_cell(i,j,0)
+#			elif ns >= 0.4:
+#				$TileMap.set_cell(i,j,1)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -61,13 +67,15 @@ func repopulate():
 
 	var current_block = get_current_big_block(player.global_position)
 
-	var difficulty = max(0.2, min(Global.time_elapsed/1800, 1)) / 2
+	var difficulty = max(0.5, min(Global.time_elapsed/900, 2)) / 2
 	for delta in neighbour_delta:
 		var new_block = [current_block[0] + delta[0], current_block[1] + delta[1]]
-		if new_block in visited:
+		if Vector2(new_block[0], new_block[1]) in visited.keys():
+#			print("Here", new_block, current_block)
 			continue
-
-		visited[new_block] = 1
+#		print("Hehe")
+		#print(current_block,Vector2(new_block[0], new_block[1]), visited.keys())
+		visited[Vector2(new_block[0], new_block[1])] = new_block
 
 		for i in range(new_block[0]*64, (1+new_block[0])*64):
 			for j in range(new_block[1]*64, (1+new_block[1])*64):
@@ -77,8 +85,8 @@ func repopulate():
 					$TileMap.set_cell(i,j,0)
 				elif ns >= 0.4:
 					$TileMap.set_cell(i,j,1)
-				if ns >= 0.8:
-					if randf() < difficulty:
+				if ns >= 0.2 and ns <= 0.3:
+					if randf() < difficulty * 0.25:
 						var turret = Turret.instance()
 						turret.global_position = Vector2(new_block[0]*64*64 + i*64+32,new_block[1]*64*64 + j*64+32)
 						$Enemies.add_child(turret)
@@ -86,7 +94,7 @@ func repopulate():
 		for i in range(8):
 			for j in range(8):
 				if randf() < difficulty:
-					if randf() < min(2*difficulty, 0.7):
+					if randf() < 0.5:
 						var enemy_ship = Enemy.instance()
 						var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
 						enemy_ship.global_position = position
@@ -104,12 +112,14 @@ func repopulate():
 					comm_sat.global_position = position
 					$GoodGuys.add_child(comm_sat)
 	# Clean up
-	for block in visited:
+	for key in visited:
+		var block = visited[key]
 		# If manhattan distance >= 8, remove that block
 		if abs(current_block[0]-block[0]) + abs(current_block[1] - block[1]) >= 8:
 			for i in range(block[0]*64, (1+block[0])*64):
 				for j in range(block[1]*64, (1+block[1])*64):
 					$TileMap.set_cell(i,j,-1)
+			visited.erase(key)
 	
 func get_current_big_block(global_position):
 	return [floor(global_position.x/64/64), floor(global_position.y/64/64)]

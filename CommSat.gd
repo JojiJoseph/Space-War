@@ -6,6 +6,7 @@ export(float) var velocity = 20
 var since_last_fire = 0
 
 func _ready():
+	$Sprite.modulate = Color(randf(), randf(), randf())
 	global_rotation += randf()*PI - PI/2
 
 func _process(delta):
@@ -16,7 +17,6 @@ func _process(delta):
 		var distance_to_player = (Global.player.global_position - global_position).length()
 		if  distance_to_player > 10_000:
 			queue_free()
-			return
 	
 
 

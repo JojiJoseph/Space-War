@@ -25,15 +25,22 @@
      showgrid="false"
      units="px"
      width="64px"
-     inkscape:zoom="5.6444444"
-     inkscape:cx="44.025591"
-     inkscape:cy="35.698819"
+     inkscape:zoom="2.8222222"
+     inkscape:cx="103.64173"
+     inkscape:cy="63.602363"
      inkscape:window-width="1920"
      inkscape:window-height="964"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="11.9061,8.4488518"
+       orientation="0,-1"
+       id="guide1225" />
+  </sodipodi:namedview>
   <defs
      id="defs2" />
   <g
@@ -48,5 +55,24 @@
        x="0.13347851"
        y="-16.799641"
        transform="scale(1,-1)" />
+    <path
+       style="fill:none;stroke:#b3b3b3;stroke-width:0.26458px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="M 0.13347851,0.13347817 4.7778567,8.4842682 0.13347851,16.799641"
+       id="path1223"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.260438px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 0.13166862,0.13247158 4.6312275,8.484272 0.13166862,16.800651"
+       id="path2003"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#b3b3b3;stroke-width:0.260438px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 16.799643,0.13146144 12.300084,8.4832619 16.799643,16.799641"
+       id="path2087"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#b3b3b3;stroke-width:0.26458px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 4.7778568,8.4842681 7.5222272,-0.00101"
+       id="path2122" />
   </g>
 </svg>

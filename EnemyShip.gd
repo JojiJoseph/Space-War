@@ -28,7 +28,7 @@ func _process(delta):
 		if distance_to_player < 500: # Field of vision
 			look_at(player.global_position)
 			direction = (Global.player.global_position - global_position).normalized()
-			if since_last_fire > 0.4:
+			if since_last_fire > 0.1 + randf()*0.2:
 				var prob = randf()
 				if prob > 0.50:
 					var bullet = Bullet.instance()
