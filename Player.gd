@@ -63,7 +63,7 @@ func _process(delta):
 					bullet.direction = direction
 					bullet.global_position = global_position
 					bullet.global_rotation = global_rotation
-					get_parent().add_child((bullet))
+					get_parent().get_node("Bullets").add_child((bullet))
 					if not $AudioStreamPlayer2D.playing:
 						$AudioStreamPlayer2D.play()
 					since_last_fire = 0
@@ -79,8 +79,8 @@ func _process(delta):
 					bullet2.direction = direction
 					bullet2.global_position = $BulletPositionRight.global_position
 					bullet2.global_rotation = global_rotation
-					get_parent().add_child((bullet))
-					get_parent().add_child((bullet2))
+					get_parent().get_node("Bullets").add_child((bullet))
+					get_parent().get_node("Bullets").add_child((bullet2))
 					bullets_available[current_gun] -= 1
 					#print(bullets_available)
 					since_last_fire = 0
@@ -102,7 +102,7 @@ func _process(delta):
 				var direction = (get_global_mouse_position() - bullet_position).normalized()
 				missile.direction = direction
 				missile.global_position = bullet_position
-				get_parent().add_child(missile)
+				get_parent().get_node("Bullets").add_child(missile)
 				missile.look_at(get_global_mouse_position())
 				missile.global_rotation = missile.global_rotation + PI/2
 
@@ -151,14 +151,14 @@ func _on_PowerUpAreaBox_area_entered(area):
 	if area.power == area.DOUBLE:
 		Global.score += 100
 		#bullets_available[DOUBLE_BARREL] = 100
-		bullets_available[DOUBLE_BARREL] = max(bullets_available[DOUBLE_BARREL]+100, 500)
+		bullets_available[DOUBLE_BARREL] = min(bullets_available[DOUBLE_BARREL]+100, 500)
 		current_gun = DOUBLE_BARREL
 	elif area.power== area.HEALTH:
 		Global.score += 100
 		health = 100
 	elif area.power== area.MISSILE:
 		Global.score += 100
-		bullets_available[MISSILE] = max(bullets_available[MISSILE]+10, 50)
+		bullets_available[MISSILE] = min(bullets_available[MISSILE]+10, 50)
 		current_gun = MISSILE
 	elif area.power== area.ARMOUR:
 		Global.score += 100
@@ -167,7 +167,7 @@ func _on_PowerUpAreaBox_area_entered(area):
 		Global.score += 100
 		for enemy in get_parent().get_node("Enemies").get_children():
 			var pos = enemy.global_position
-			if (global_position - pos).length() < 12000:
+			if (global_position - pos).length() < 4000:
 				var explosion = Explosion.instance()
 				explosion.global_position = pos
 				enemy.queue_free()

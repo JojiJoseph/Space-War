@@ -14,9 +14,12 @@ var noise_generator = OpenSimplexNoise.new()
 var visited = {}
 
 var Enemy = preload("res://EnemyShip.tscn")
+var KillerSat = preload("res://KillerSat.tscn")
+var Turret = preload("res://Turret.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.reset()
 	Input.set_custom_mouse_cursor(load("res://art/crosshair.svg"),Input.CURSOR_CROSS,Vector2(8,8))
 	Input.set_default_cursor_shape(Input.CURSOR_CROSS)
 
@@ -54,32 +57,44 @@ func repopulate():
 	var xy = Global.player.global_position/64
 	xy = [floor(xy[0]),floor(xy[1])]
 	var neighbour_delta = [[-1,-1],[0,-1],[1,-1],[1,0],[1,1],[0,1],[-1,1],[-1,0]]
-	#print(player.global_position/ 8/64)
+
 	var current_block = get_current_big_block(player.global_position)
-	#print(current_block)
-	#neighbour_delta = [[-1,-1],[0,-1],[1,-1],[1,0],[1,1],[0,1],[0,-1]]
+
+	var difficulty = max(0.2, min(Global.time_elapsed/1800, 1)) / 2
 	for delta in neighbour_delta:
 		var new_block = [current_block[0] + delta[0], current_block[1] + delta[1]]
 		if new_block in visited:
 			continue
-		#print(new_block)
+
 		visited[new_block] = 1
-		#print(block)
+
 		for i in range(new_block[0]*64, (1+new_block[0])*64):
 			for j in range(new_block[1]*64, (1+new_block[1])*64):
 				var ns = noise_generator.get_noise_2d(i, j)
-				#print(ns)
+
 				if 0.0 < ns and ns < 0.4:
 					$TileMap.set_cell(i,j,0)
 				elif ns >= 0.4:
 					$TileMap.set_cell(i,j,1)
+				if ns >= 0.8:
+					if randf() < difficulty:
+						var turret = Turret.instance()
+						turret.global_position = Vector2(new_block[0]*64*64 + i*64+32,new_block[1]*64*64 + j*64+32)
+						$Enemies.add_child(turret)
+						
 		for i in range(8):
 			for j in range(8):
-				if randf() < 0.2:
-					var enemy_ship = Enemy.instance()
-					var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
-					enemy_ship.global_position = position
-					$Enemies.add_child(enemy_ship)
+				if randf() < difficulty:
+					if randf() < min(2*difficulty, 0.7):
+						var enemy_ship = Enemy.instance()
+						var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
+						enemy_ship.global_position = position
+						$Enemies.add_child(enemy_ship)
+					else:
+						var killer_sat = KillerSat.instance()
+						var position = Vector2(new_block[0]*64*64 + i * 8 * 64,  new_block[1]*64*64 + j * 8 * 64)
+						killer_sat.global_position = position
+						$Enemies.add_child(killer_sat)
 	# Clean up
 	for block in visited:
 		# If manhattan distance >= 8, remove that block

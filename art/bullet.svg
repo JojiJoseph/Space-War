@@ -25,26 +25,32 @@
      showgrid="false"
      units="px"
      width="64px"
-     inkscape:zoom="5.6444444"
-     inkscape:cx="44.025591"
-     inkscape:cy="64.045276"
+     inkscape:zoom="7.9824498"
+     inkscape:cx="28.500023"
+     inkscape:cy="31.381344"
      inkscape:window-width="1920"
      inkscape:window-height="964"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="34.195409,13.981881"
+       orientation="1,0"
+       id="guide1769" />
+  </sodipodi:namedview>
   <defs
      id="defs2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <circle
-       style="fill:#ff0000;fill-rule:evenodd;stroke:#000000;stroke-width:0.26458;stroke-opacity:1"
-       id="path945"
-       cx="8.4665604"
-       cy="8.4665604"
-       r="2.9967015" />
+    <path
+       style="fill:#d40000;stroke:#000000;stroke-width:0.351543px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 4.4145114,6.5274624 -0.00523,3.8797256 c 10.8188526,0.03504 10.8188526,-3.7711043 0.00523,-3.8797256 z"
+       id="path877"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>
