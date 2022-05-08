@@ -47,7 +47,7 @@ margin_left = -231.0
 margin_top = -18.0
 margin_right = 231.0
 margin_bottom = 58.0
-columns = 3
+columns = 2
 
 [node name="Label" type="Label" parent="GridContainer"]
 margin_right = 177.0
@@ -57,12 +57,15 @@ text = "Music Volume"
 
 [node name="HSlider" type="HSlider" parent="GridContainer"]
 margin_left = 181.0
-margin_right = 448.0
+margin_right = 462.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
+min_value = -80.0
+max_value = 0.0
 
 [node name="MusicVolume" type="Label" parent="GridContainer"]
+visible = false
 margin_left = 452.0
 margin_right = 462.0
 margin_bottom = 27.0
@@ -79,11 +82,14 @@ text = "SFX Volume"
 [node name="HSlider2" type="HSlider" parent="GridContainer"]
 margin_left = 181.0
 margin_top = 31.0
-margin_right = 448.0
+margin_right = 462.0
 margin_bottom = 58.0
 size_flags_vertical = 1
+min_value = -80.0
+max_value = 0.0
 
 [node name="SfxVolume" type="Label" parent="GridContainer"]
+visible = false
 margin_left = 452.0
 margin_top = 31.0
 margin_right = 462.0

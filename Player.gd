@@ -148,6 +148,8 @@ func select_prev_gun():
 
 
 func _on_PowerUpAreaBox_area_entered(area):
+	if not $PowerUpPlayer.playing:
+		$PowerUpPlayer.play()
 	if area.power == area.DOUBLE:
 		Global.score += 100
 		#bullets_available[DOUBLE_BARREL] = 100
