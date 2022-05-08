@@ -169,7 +169,7 @@ func _on_PowerUpAreaBox_area_entered(area):
 		Global.score += 100
 		for enemy in get_parent().get_node("Enemies").get_children():
 			var pos = enemy.global_position
-			if (global_position - pos).length() < 4000:
+			if (global_position - pos).length() < 2000:
 				var explosion = Explosion.instance()
 				explosion.global_position = pos
 				enemy.queue_free()
