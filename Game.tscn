@@ -5,12 +5,12 @@
 [ext_resource path="res://mixkit-to-the-next-round-1047.mp3" type="AudioStream" id=3]
 [ext_resource path="res://Game.gd" type="Script" id=4]
 [ext_resource path="res://PauseScreen.gd" type="Script" id=5]
-[ext_resource path="res://powerups/PowerUp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PowerUp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://EnemyShip.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Turret.tscn" type="PackedScene" id=8]
 [ext_resource path="res://art/bg.png" type="Texture" id=9]
 [ext_resource path="res://KillerSat.tscn" type="PackedScene" id=10]
-[ext_resource path="res://art/tile_house.svg" type="Texture" id=11]
+[ext_resource path="res://art/tile_abandoned_house.svg" type="Texture" id=11]
 [ext_resource path="res://theme.tres" type="Theme" id=12]
 [ext_resource path="res://space_3/SPACE.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://CommSat.tscn" type="PackedScene" id=14]
@@ -143,6 +143,7 @@ margin_bottom = 166.0
 text = "Back to Main Menu"
 
 [node name="ExitButton" type="Button" parent="HUD/PauseScreen/VBoxContainer"]
+visible = false
 margin_top = 170.0
 margin_right = 371.0
 margin_bottom = 196.0

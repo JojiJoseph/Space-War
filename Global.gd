@@ -7,7 +7,7 @@ var score = 0
 var game_over = false
 var time_elapsed = 0
 
-var PowerUp = preload("res://powerups/PowerUp.tscn")
+var PowerUp = preload("res://PowerUp.tscn")
 
 enum {
 	NORMAL_GUN,
