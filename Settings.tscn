@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://mixkit-to-the-next-round-1047.mp3" type="AudioStream" id=1]
 [ext_resource path="res://Settings.gd" type="Script" id=2]
 [ext_resource path="res://sound/SUCCESS PICKUP Collect Chime 01.ogg" type="AudioStream" id=3]
 [ext_resource path="res://theme.tres" type="Theme" id=4]
 [ext_resource path="res://art/bg.png" type="Texture" id=5]
+[ext_resource path="res://space_3/SPACE.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 6 )
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
@@ -50,13 +55,13 @@ margin_bottom = 58.0
 columns = 2
 
 [node name="Label" type="Label" parent="GridContainer"]
-margin_right = 177.0
+margin_right = 188.0
 margin_bottom = 27.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Music Volume"
 
 [node name="HSlider" type="HSlider" parent="GridContainer"]
-margin_left = 181.0
+margin_left = 192.0
 margin_right = 462.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
@@ -74,13 +79,13 @@ text = "0"
 
 [node name="Label2" type="Label" parent="GridContainer"]
 margin_top = 31.0
-margin_right = 177.0
+margin_right = 188.0
 margin_bottom = 58.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SFX Volume"
 
 [node name="HSlider2" type="HSlider" parent="GridContainer"]
-margin_left = 181.0
+margin_left = 192.0
 margin_top = 31.0
 margin_right = 462.0
 margin_bottom = 58.0
@@ -98,8 +103,40 @@ size_flags_vertical = 5
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "0"
 
+[node name="Controls" type="Label" parent="GridContainer"]
+margin_top = 62.0
+margin_right = 188.0
+margin_bottom = 89.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Control Mode"
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer"]
+margin_left = 192.0
+margin_top = 62.0
+margin_right = 462.0
+margin_bottom = 89.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+flat = true
+align = 1
+
+[node name="SfxVolume2" type="Label" parent="GridContainer"]
+visible = false
+margin_left = 452.0
+margin_top = 31.0
+margin_right = 462.0
+margin_bottom = 58.0
+size_flags_vertical = 5
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "0"
+
 [connection signal="pressed" from="BackButton" to="." method="_on_Button_pressed"]
 [connection signal="focus_entered" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
 [connection signal="focus_exited" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_exited"]
 [connection signal="value_changed" from="GridContainer/HSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="GridContainer/HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="item_selected" from="GridContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]

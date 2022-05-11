@@ -45,17 +45,29 @@ func _process(delta):
 	look_at(get_global_mouse_position())
 	direction = (get_global_mouse_position()-global_position).normalized()
 	if Input.is_action_pressed("forward"):
-		var delta_position = (get_global_mouse_position()-global_position).normalized()*velocity*delta;
-		move_and_collide(delta_position)
+		if not Global.relative_to_observer:
+			var delta_position = (get_global_mouse_position()-global_position).normalized()*velocity*delta;
+			move_and_collide(delta_position)
+		else:
+			move_and_collide(Vector2(0,-1)*velocity*delta)
 	if Input.is_action_pressed("backward"):
-		var delta_position = -(get_global_mouse_position()-global_position).normalized()*velocity*delta;
-		move_and_collide(delta_position)
+		if not Global.relative_to_observer:
+			var delta_position = -(get_global_mouse_position()-global_position).normalized()*velocity*delta;
+			move_and_collide(delta_position)
+		else:
+			move_and_collide(Vector2(0,1)*velocity*delta)
 	if Input.is_action_pressed("left"):
-		var delta_position = (get_global_mouse_position()-global_position).normalized().rotated(-PI/2) * delta * 400
-		move_and_collide(delta_position)
+		if not Global.relative_to_observer:
+			var delta_position = (get_global_mouse_position()-global_position).normalized().rotated(-PI/2) * delta * 400
+			move_and_collide(delta_position)
+		else:
+			move_and_collide(Vector2(-1,0)*velocity*delta)
 	if Input.is_action_pressed("right"):
-		var delta_position = (get_global_mouse_position()-global_position).normalized().rotated(PI/2) * delta * 400
-		move_and_collide(delta_position)
+		if not Global.relative_to_observer:
+			var delta_position = (get_global_mouse_position()-global_position).normalized().rotated(PI/2) * delta * 400
+			move_and_collide(delta_position)
+		else:
+			move_and_collide(Vector2(1,0)*velocity*delta)
 	if Input.is_action_pressed("fire"):
 		if current_gun == NORMAL_GUN:
 				if since_last_fire > 0.15:
@@ -189,4 +201,8 @@ func _on_BulletHitBox_body_entered(body):
 	if health <= 0:
 		body.queue_free()
 		#queue_free()
+		var explosion = Explosion.instance()
+		explosion.global_position = global_position
+		explosion.pause_mode = PAUSE_MODE_PROCESS
+		get_parent().add_child(explosion)
 		Global.game_over = true

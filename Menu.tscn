@@ -55,23 +55,21 @@ margin_bottom = 124.0
 text = "Start"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
-visible = false
 margin_top = 128.0
 margin_right = 290.0
 margin_bottom = 154.0
 text = "Settings"
 
 [node name="HelpButton" type="Button" parent="VBoxContainer"]
-margin_top = 128.0
-margin_right = 290.0
-margin_bottom = 154.0
-text = "Help"
-
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-visible = false
 margin_top = 158.0
 margin_right = 290.0
 margin_bottom = 184.0
+text = "Help"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+margin_top = 188.0
+margin_right = 290.0
+margin_bottom = 214.0
 text = "Exit"
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]

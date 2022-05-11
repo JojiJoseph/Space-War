@@ -19,6 +19,11 @@ func _ready():
 	$GridContainer/SfxVolume.text = str(int(sfx_volume))
 	updation_in_progress = false
 	
+	$GridContainer/OptionButton.add_item("Relative to character")
+	$GridContainer/OptionButton.add_item("Relative to observer")
+	if Global.relative_to_observer:
+		$GridContainer/OptionButton.selected = 1
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,3 +71,10 @@ func _on_HSlider2_value_changed(value):
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), value)
 		if not $"SFX Music".playing and not updation_in_progress:
 			$"SFX Music".play()
+
+
+func _on_OptionButton_item_selected(index):
+	if index == 1:
+		Global.relative_to_observer = true
+	else:
+		Global.relative_to_observer = false

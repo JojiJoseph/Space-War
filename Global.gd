@@ -6,6 +6,7 @@ var player = null
 var score = 0
 var game_over = false
 var time_elapsed = 0
+var relative_to_observer = false
 
 var PowerUp = preload("res://PowerUp.tscn")
 
@@ -23,6 +24,7 @@ func _process(delta):
 	if game_over == true:
 		if player:
 			player.hide()
+		
 	time_elapsed += delta
 		
 func get_power_up():
