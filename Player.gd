@@ -11,6 +11,7 @@ var since_last_fire = 0
 var armour_elapsed = 100
 
 var health = 100
+var prev_health_update_elapsed = 0
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -131,6 +132,17 @@ func _process(delta):
 	$HealthBar.value = health
 	since_last_fire += delta
 	armour_elapsed += delta
+	# When health is low, allow player to get a safe health by hiding
+	if health > 0 and health < 50:
+		if prev_health_update_elapsed > 1:
+			if health < 10: 
+				health += 4
+			elif health < 25:
+				health += 2
+			else:
+				health += 1
+			prev_health_update_elapsed = 0
+		prev_health_update_elapsed += delta
 		
 func _input(_event):
 	if Input.is_action_just_pressed("prev_weapon"):
