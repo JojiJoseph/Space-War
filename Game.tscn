@@ -67,9 +67,9 @@ void fragment() {
 	
 	COLOR = texture(TEXTURE, UV);
 	if (COLOR.r < 0.4){
-		COLOR.r = 0.05 + 0.05 * sin(0.1*TIME);
-		COLOR.g = 0.05 + 0.05 * cos(0.1*TIME);
-		COLOR.g = 0.05 + 0.025 * (cos(0.1*TIME)+sin(0.1*TIME));
+		COLOR.r = 0.025 + 0.025 * sin(0.02*TIME);
+		COLOR.g = 0.025 + 0.025 * cos(1.57 + 0.04*TIME);
+		COLOR.g = 0.025 + 0.0125 * (cos(1.57 + 0.06*TIME)+sin(0.08*TIME));
 	}
 	
 }"

@@ -1,3 +1,5 @@
+tool
+
 extends Area2D
 
 enum {
@@ -27,6 +29,9 @@ func _ready():
 	
 	
 func _process(_delta):
-	if Global.player:
-		if (Global.player.global_position - global_position).length() > 10_000:
-			queue_free()
+	if Engine.editor_hint:
+		$Sprite.texture = powerup_sprites[power]
+	if not Engine.editor_hint:
+		if Global.player:
+			if (Global.player.global_position - global_position).length() > 10_000:
+				queue_free()
