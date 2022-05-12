@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/tile_generic.svg" type="Texture" id=2]
@@ -59,6 +59,23 @@ font_data = ExtResource( 13 )
 size = 32
 outline_size = 1
 font_data = ExtResource( 13 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+void fragment() {
+	
+	COLOR = texture(TEXTURE, UV);
+	if (COLOR.r < 0.4){
+		COLOR.r = 0.05 + 0.05 * sin(0.1*TIME);
+		COLOR.g = 0.05 + 0.05 * cos(0.1*TIME);
+		COLOR.g = 0.05 + 0.025 * (cos(0.1*TIME)+sin(0.1*TIME));
+	}
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -234,6 +251,7 @@ motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 4096, 4096 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource( 6 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 9 )
 __meta__ = {

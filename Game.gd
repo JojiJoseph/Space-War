@@ -71,10 +71,8 @@ func repopulate():
 	for delta in neighbour_delta:
 		var new_block = [current_block[0] + delta[0], current_block[1] + delta[1]]
 		if Vector2(new_block[0], new_block[1]) in visited.keys():
-#			print("Here", new_block, current_block)
 			continue
-#		print("Hehe")
-		#print(current_block,Vector2(new_block[0], new_block[1]), visited.keys())
+
 		visited[Vector2(new_block[0], new_block[1])] = new_block
 
 		for i in range(new_block[0]*64, (1+new_block[0])*64):
@@ -85,10 +83,10 @@ func repopulate():
 					$TileMap.set_cell(i,j,0)
 				elif ns >= 0.4:
 					$TileMap.set_cell(i,j,1)
-				if ns >= 0.2 and ns <= 0.3:
-					if randf() < difficulty * 0.25:
+				if ns >= 0.2 and ns <= 0.25:
+					if randf() < difficulty * 0.1:
 						var turret = Turret.instance()
-						turret.global_position = Vector2(new_block[0]*64*64 + i*64+32,new_block[1]*64*64 + j*64+32)
+						turret.global_position = Vector2(i*64+32,j*64+32)
 						$Enemies.add_child(turret)
 						
 		for i in range(8):
