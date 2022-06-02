@@ -69,7 +69,7 @@ func get_event_text(event):
 				return "Wheel Up"
 			BUTTON_WHEEL_DOWN:
 				return "Wheel Down"
-	return "??"
+	return event.as_text()
 func _on_OptionButton_item_selected(index):
 	if index == 1:
 		Global.relative_to_observer = true

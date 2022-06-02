@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/mixkit-to-the-next-round-1047.mp3-fcec7ab993d8062d2a82c0d8ee15106f.mp3str"
+
+[deps]
+
+source_file="res://mixkit-to-the-next-round-1047.mp3"
+dest_files=[ "res://.import/mixkit-to-the-next-round-1047.mp3-fcec7ab993d8062d2a82c0d8ee15106f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
