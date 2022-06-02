@@ -1,0 +1,61 @@
+extends Control
+
+
+var updation_in_progress = true
+
+func _ready():
+	var music_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	var music_volume = db2linear(music_volume_db) * 100
+	$GridContainer/HSlider.value = music_volume
+	$GridContainer/MusicVolume.text = str(int(music_volume))
+	
+	var sfx_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
+	var sfx_volume = db2linear(sfx_volume_db) * 100
+	$GridContainer/HSlider2.value = sfx_volume
+	$GridContainer/SfxVolume.text = str(int(sfx_volume))
+	
+	updation_in_progress = false
+	
+	$GridContainer/OptionButton.add_item("Relative to character")
+	$GridContainer/OptionButton.add_item("Relative to observer")
+	if Global.relative_to_observer:
+		$GridContainer/OptionButton.selected = 1
+
+
+func _on_BackButton_pressed():
+	get_tree().change_scene("res://Menu.tscn")
+
+
+func _on_HSlider_value_changed(value):
+	var volume_db = linear2db(value/100)
+	$GridContainer/MusicVolume.text = str(value)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), false)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), volume_db)
+
+
+
+
+func _on_HSlider_focus_entered():
+	if not updation_in_progress:
+		$BackgroundMusic.playing = true
+
+
+func _on_HSlider_focus_exited():
+	if not updation_in_progress:
+		$BackgroundMusic.playing = false
+
+
+func _on_HSlider2_value_changed(value):
+	var volume_db = linear2db(value/100)
+	$GridContainer/SfxVolume.text = str(value)
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("SFX"), false)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), volume_db)
+	if not $"SFX Music".playing and not updation_in_progress:
+		$"SFX Music".play()
+
+
+func _on_OptionButton_item_selected(index):
+	if index == 1:
+		Global.relative_to_observer = true
+	else:
+		Global.relative_to_observer = false

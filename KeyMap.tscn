@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://KeyMap.gd" type="Script" id=1]
+
+[node name="KeyMap" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 14.0
+text = "Key Map"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 1024.0
+margin_bottom = 18.0
+size_flags_horizontal = 11
+columns = 3
+
+[node name="ResetToDefaultButton" type="Button" parent="VBoxContainer"]
+margin_top = 22.0
+margin_right = 1024.0
+margin_bottom = 42.0
+text = "Reset To Default"
+
+[connection signal="pressed" from="VBoxContainer/ResetToDefaultButton" to="." method="_on_ResetToDefaultButton_pressed"]
