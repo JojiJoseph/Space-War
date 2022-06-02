@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://KeyMap.gd" type="Script" id=1]
+[ext_resource path="res://space_3/SPACE.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 2 )
 
 [node name="KeyMap" type="Control"]
 anchor_right = 1.0
@@ -25,10 +30,36 @@ margin_bottom = 18.0
 size_flags_horizontal = 11
 columns = 3
 
-[node name="ResetToDefaultButton" type="Button" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 22.0
 margin_right = 1024.0
-margin_bottom = 42.0
+margin_bottom = 45.0
+
+[node name="Controls" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 4.0
+margin_right = 86.0
+margin_bottom = 18.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Control Mode"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 90.0
+margin_right = 119.0
+margin_bottom = 23.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_focus = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+flat = true
+align = 1
+
+[node name="ResetToDefaultButton" type="Button" parent="VBoxContainer"]
+margin_top = 49.0
+margin_right = 1024.0
+margin_bottom = 69.0
 text = "Reset To Default"
 
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="VBoxContainer/ResetToDefaultButton" to="." method="_on_ResetToDefaultButton_pressed"]

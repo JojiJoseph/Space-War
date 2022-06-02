@@ -39,7 +39,6 @@ tab_align = 0
 drag_to_rearrange_enabled = true
 
 [node name="Controls" type="Panel" parent="TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 37.0
@@ -47,13 +46,14 @@ custom_styles/panel = SubResource( 2 )
 
 [node name="KeyMap" parent="TabContainer/Controls" instance=ExtResource( 2 )]
 
-[node name="Sound" type="Panel" parent="TabContainer"]
+[node name="Audio" type="Panel" parent="TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 37.0
 custom_styles/panel = SubResource( 3 )
 
-[node name="Settings" parent="TabContainer/Sound" instance=ExtResource( 3 )]
+[node name="Audio" parent="TabContainer/Audio" instance=ExtResource( 3 )]
 
 [node name="BackButton" type="Button" parent="."]
 anchor_left = 1.0

@@ -16,10 +16,10 @@ func _ready():
 	
 	updation_in_progress = false
 	
-	$GridContainer/OptionButton.add_item("Relative to character")
-	$GridContainer/OptionButton.add_item("Relative to observer")
-	if Global.relative_to_observer:
-		$GridContainer/OptionButton.selected = 1
+#	$GridContainer/OptionButton.add_item("Relative to character")
+#	$GridContainer/OptionButton.add_item("Relative to observer")
+#	if Global.relative_to_observer:
+#		$GridContainer/OptionButton.selected = 1
 
 
 func _on_BackButton_pressed():
@@ -54,8 +54,4 @@ func _on_HSlider2_value_changed(value):
 		$"SFX Music".play()
 
 
-func _on_OptionButton_item_selected(index):
-	if index == 1:
-		Global.relative_to_observer = true
-	else:
-		Global.relative_to_observer = false
+

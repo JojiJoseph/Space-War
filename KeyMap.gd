@@ -27,6 +27,10 @@ func _ready():
 				action_button.text = "..."
 			$VBoxContainer/GridContainer.add_child(action_button)
 			action_button.connect("pressed",self,"action_button_pressed", [action_button, action, evt])
+	$VBoxContainer/HBoxContainer/OptionButton.add_item("Relative to character")
+	$VBoxContainer/HBoxContainer/OptionButton.add_item("Relative to observer")
+	if Global.relative_to_observer:
+		$VBoxContainer/HBoxContainer/OptionButton.selected = 1
 
 func action_button_pressed(btn, action, evt):
 	waiting_for_input = true
@@ -66,3 +70,8 @@ func get_event_text(event):
 			BUTTON_WHEEL_DOWN:
 				return "Wheel Down"
 	return "??"
+func _on_OptionButton_item_selected(index):
+	if index == 1:
+		Global.relative_to_observer = true
+	else:
+		Global.relative_to_observer = false
