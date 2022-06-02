@@ -23,6 +23,7 @@ font_path = "res://space_3/SPACE.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 2
 extra_spacing_bottom = 2
 font_data = SubResource( 1 )
@@ -39,4 +40,5 @@ Button/fonts/font = SubResource( 3 )
 Button/styles/hover = SubResource( 5 )
 Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 6 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
 RichTextLabel/styles/normal = SubResource( 7 )
