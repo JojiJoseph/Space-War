@@ -67,6 +67,7 @@ margin_bottom = 184.0
 text = "Help"
 
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
+visible = false
 margin_top = 188.0
 margin_right = 290.0
 margin_bottom = 214.0

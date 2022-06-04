@@ -7,7 +7,8 @@ var rebind_action = null
 var rebind_event = null
 
 func _ready():
-	for action in InputMap.get_actions():
+#	for action in InputMap.get_actions():
+	for action in ["forward", "backward", "left", "right", "fire", "next_weapon", "prev_weapon", "pause"]:
 		if not action.begins_with("ui_"):
 			var label = Label.new()
 			label.text = action
@@ -53,6 +54,7 @@ func _input(event):
 
 
 func _on_ResetToDefaultButton_pressed():
+	Global.relative_to_observer = false
 	InputMap.load_from_globals()
 	get_tree().reload_current_scene()
 	
