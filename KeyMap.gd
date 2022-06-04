@@ -16,12 +16,14 @@ func _ready():
 			var action_button = Button.new()
 			var evt = action_list[0]
 			action_button.text = get_event_text(evt)
+			action_button.size_flags_horizontal |= SIZE_EXPAND
 			$VBoxContainer/GridContainer.add_child(action_button)
 			action_button.connect("pressed",self,"action_button_pressed", [action_button, action, evt])
 			action_button = Button.new()
 			if len(action_list) > 1:
 				evt = action_list[1]
 				action_button.text = get_event_text(evt)
+				action_button.size_flags_horizontal |= SIZE_EXPAND
 			else:
 				evt = null
 				action_button.text = "..."
