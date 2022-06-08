@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://art/tile_generic.svg" type="Texture" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://theme.tres" type="Theme" id=12]
 [ext_resource path="res://space_3/SPACE.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://CommSat.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Audio.tscn" type="PackedScene" id=15]
+[ext_resource path="res://KeyMap.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tile_generic.svg 0"
@@ -61,6 +63,15 @@ shader = SubResource( 7 )
 size = 32
 outline_size = 1
 font_data = ExtResource( 13 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.6, 0.6, 0.6, 0.196078 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.6, 0.6, 0.6, 0.196078 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -177,10 +188,16 @@ margin_right = 371.0
 margin_bottom = 136.0
 text = "Restart"
 
-[node name="BackButton" type="Button" parent="HUD/PauseScreen/VBoxContainer"]
+[node name="Settings" type="Button" parent="HUD/PauseScreen/VBoxContainer"]
 margin_top = 140.0
 margin_right = 371.0
 margin_bottom = 166.0
+text = "Settings"
+
+[node name="BackButton" type="Button" parent="HUD/PauseScreen/VBoxContainer"]
+margin_top = 170.0
+margin_right = 371.0
+margin_bottom = 196.0
 text = "Back to Main Menu"
 
 [node name="ExitButton" type="Button" parent="HUD/PauseScreen/VBoxContainer"]
@@ -189,6 +206,56 @@ margin_top = 170.0
 margin_right = 371.0
 margin_bottom = 196.0
 text = "Exit"
+
+[node name="PopupDialog" type="PopupDialog" parent="HUD/PauseScreen"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+theme = ExtResource( 12 )
+popup_exclusive = true
+
+[node name="TabContainer" type="TabContainer" parent="HUD/PauseScreen/PopupDialog"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -20.0
+custom_styles/panel = SubResource( 9 )
+tab_align = 0
+drag_to_rearrange_enabled = true
+
+[node name="Audio" type="Panel" parent="HUD/PauseScreen/PopupDialog/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 37.0
+custom_styles/panel = SubResource( 11 )
+
+[node name="Audio" parent="HUD/PauseScreen/PopupDialog/TabContainer/Audio" instance=ExtResource( 15 )]
+
+[node name="Controls" type="Panel" parent="HUD/PauseScreen/PopupDialog/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 37.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="KeyMap" parent="HUD/PauseScreen/PopupDialog/TabContainer/Controls" instance=ExtResource( 16 )]
+
+[node name="BackToPauseMenu" type="Button" parent="HUD/PauseScreen/PopupDialog"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -120.0
+margin_top = -50.0
+margin_right = -20.0
+margin_bottom = -20.0
+text = "Back"
 
 [node name="Score" type="Label" parent="HUD"]
 anchor_left = 1.0
@@ -401,5 +468,7 @@ position = Vector2( 287, -43 )
 
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/ResumeButton" to="HUD/PauseScreen" method="_on_ResumeButton_pressed"]
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/RestartButton" to="HUD/PauseScreen" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/Settings" to="HUD/PauseScreen" method="_on_Settings_pressed"]
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/BackButton" to="HUD/PauseScreen" method="_on_BackButton_pressed"]
 [connection signal="pressed" from="HUD/PauseScreen/VBoxContainer/ExitButton" to="HUD/PauseScreen" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="HUD/PauseScreen/PopupDialog/BackToPauseMenu" to="HUD/PauseScreen" method="_on_BackToPauseMenu_pressed"]

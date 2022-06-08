@@ -45,9 +45,11 @@ func action_button_pressed(btn, action, evt):
 	btn.modulate = Color.green
 	
 func _input(event):
-	if event is InputEventKey or event is InputEventMouseButton and waiting_for_input:
+	#return
+	if (event is InputEventKey or event is InputEventMouseButton) and waiting_for_input:
 		if rebind_event != null:
 			InputMap.action_erase_event(rebind_action, rebind_event)
+		print(rebind_action)
 		InputMap.action_add_event(rebind_action, event)
 		rebind_button.text = get_event_text(event)
 		waiting_for_input = false 

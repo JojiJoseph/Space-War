@@ -16,10 +16,10 @@ func _ready():
 	
 	updation_in_progress = false
 	
-#	$GridContainer/OptionButton.add_item("Relative to character")
-#	$GridContainer/OptionButton.add_item("Relative to observer")
-#	if Global.relative_to_observer:
-#		$GridContainer/OptionButton.selected = 1
+func _process(delta):
+	if not visible:
+		$BackgroundMusic.playing = false
+		$"SFX Music".playing = false
 
 
 func _on_BackButton_pressed():
