@@ -61,6 +61,11 @@ func _process(_delta):
 			$HUD/GrayHealthIndicator.show()
 		else:
 			$HUD/GrayHealthIndicator.hide() 
+			
+		var loc_x = Input.get_joy_axis(0, JOY_ANALOG_RX)
+		var loc_y = Input.get_joy_axis(0, JOY_ANALOG_RY)
+		if loc_x and loc_y:
+			get_viewport().warp_mouse(get_viewport().get_mouse_position() +  10 * Vector2(loc_x, loc_y))
 		
 func repopulate():
 
