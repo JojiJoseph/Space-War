@@ -1,6 +1,5 @@
 extends Area2D
 export(Vector2) var direction = Vector2(1,0)
-#export(float) var velocity = 200
 var health = 100
 
 var Bullet = preload("res://Bullet.tscn")
@@ -22,7 +21,6 @@ func _process(delta):
 			$Sprite.look_at(player.global_position)
 			# TODO look at slowly
 			direction = (Global.player.global_position - global_position).normalized()
-			#move_and_collide(direction*velocity*delta)
 			if since_last_fire > 0.1 + randf()*0.2:
 				var prob = randf()
 				if prob > 0.50:
@@ -46,10 +44,8 @@ func _on_Turret_body_entered(body):
 		explosion.global_position = global_position
 		get_parent().add_child(explosion)
 		var power_up = Global.get_power_up()
-		#print(power_up)
 		if power_up:
 			power_up.global_position = global_position
-			#get_parent().add_child(power_up)
 			call_deferred("add_power_up", power_up)
 		Global.score += 500
 		body.queue_free()

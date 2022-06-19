@@ -1,10 +1,6 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var gun_indicator_sprites = [
 	preload("res://art/weapon_hud/bullet.svg"),
 	preload("res://art/weapon_hud/double.svg"),
@@ -28,18 +24,7 @@ func _ready():
 	
 	for block in [[0,0],[0,-1],[-1,-1],[-1,0]]: 
 		visited[Vector2(block[0], block[1])] = block
-	#print(visited.keys())
-#	visited[[0,-1]] = 1
-#	visited[[-1,0]] = 1
-#	visited[[-1,-1]] = 1
-	
-#	for i in 100:
-#		for j in 100:
-#			var ns = noise_generator.get_noise_2d(i, j)
-#			if 0.0 < ns and ns < 0.4:
-#				$TileMap.set_cell(i,j,0)
-#			elif ns >= 0.4:
-#				$TileMap.set_cell(i,j,1)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

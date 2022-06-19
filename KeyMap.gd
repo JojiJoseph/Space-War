@@ -45,7 +45,6 @@ func action_button_pressed(btn, action, evt):
 	btn.modulate = Color.green
 	
 func _input(event):
-	#return
 	if (event is InputEventKey or event is InputEventMouseButton) and waiting_for_input:
 		if rebind_event != null:
 			InputMap.action_erase_event(rebind_action, rebind_event)
@@ -76,6 +75,7 @@ func get_event_text(event):
 			BUTTON_WHEEL_DOWN:
 				return "Wheel Down"
 	return event.as_text()
+
 func _on_OptionButton_item_selected(index):
 	if index == 1:
 		Global.relative_to_observer = true

@@ -33,8 +33,6 @@ func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), volume_db)
 
 
-
-
 func _on_HSlider_focus_entered():
 	if not updation_in_progress:
 		$BackgroundMusic.playing = true
@@ -52,6 +50,3 @@ func _on_HSlider2_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), volume_db)
 	if not $"SFX Music".playing and not updation_in_progress:
 		$"SFX Music".play()
-
-
-

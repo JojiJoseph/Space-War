@@ -13,9 +13,7 @@ var armour_elapsed = 100
 var health = 100
 var prev_health_update_elapsed = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 enum {
 	NORMAL_GUN,
 	DOUBLE_BARREL,
@@ -39,10 +37,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 func _process(delta):
-	#print(health)
 	look_at(get_global_mouse_position())
 	direction = (get_global_mouse_position()-global_position).normalized()
 	if Input.is_action_pressed("forward"):
@@ -95,7 +90,6 @@ func _process(delta):
 					get_parent().get_node("Bullets").add_child((bullet))
 					get_parent().get_node("Bullets").add_child((bullet2))
 					bullets_available[current_gun] -= 1
-					#print(bullets_available)
 					since_last_fire = 0
 					if not $AudioStreamPlayer2D.playing:
 						$AudioStreamPlayer2D.play()
@@ -149,7 +143,6 @@ func _input(_event):
 		select_prev_gun()
 	if Input.is_action_just_pressed("next_weapon"):
 		select_next_gun()
-	#print(current_gun)
 
 func select_next_gun():
 	current_gun += 1
@@ -212,7 +205,6 @@ func _on_BulletHitBox_body_entered(body):
 			health -= body.damage / 2
 	if health <= 0:
 		body.queue_free()
-		#queue_free()
 		var explosion = Explosion.instance()
 		explosion.global_position = global_position
 		explosion.pause_mode = PAUSE_MODE_PROCESS

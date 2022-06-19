@@ -40,11 +40,8 @@ func _process(delta):
 				since_last_fire = 0
 		since_last_fire += delta
 		$HealthBar.value = health
-	
-
-
-
-
+		
+		
 func _on_BulletHitBox_body_entered(body):
 	if body.from == "player":
 		health -= body.damage
@@ -60,6 +57,7 @@ func _on_BulletHitBox_body_entered(body):
 		body.queue_free()
 		Global.score += 1000
 		queue_free()
+
 
 func add_power_up(power_up):
 	get_parent().add_child(power_up)
