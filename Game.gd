@@ -40,8 +40,7 @@ func _process(_delta):
 		else:
 			$HUD/WeaponIndicator/Count.text = str(Global.player.bullets_available[Global.player.current_gun])
 		$HUD/Score.text = "Score : " + str(Global.score)
-#		$Camera2D.global_rotation = Global.player.global_rotation+ PI/2
-#		$Camera2D.global_position = Global.player.global_position 
+
 		if Global.player.health <= 25:
 			$HUD/GrayHealthIndicator.show()
 		else:

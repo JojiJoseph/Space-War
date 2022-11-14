@@ -10,7 +10,7 @@ func _on_StartButton_pressed():
 
 
 func _on_HelpButton_pressed():
-	get_tree().change_scene("res://Help2.tscn")
+	get_tree().change_scene("res://Help.tscn")
 
 
 func _on_ExitButton_pressed():
