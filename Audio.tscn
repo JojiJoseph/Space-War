@@ -30,13 +30,13 @@ margin_right = 231.0
 margin_bottom = 58.0
 columns = 3
 
-[node name="Label" type="Label" parent="GridContainer"]
+[node name="MusicVolumeLabel" type="Label" parent="GridContainer"]
 margin_right = 177.0
 margin_bottom = 27.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Music Volume"
 
-[node name="HSlider" type="HSlider" parent="GridContainer"]
+[node name="MusicVolumeSlider" type="HSlider" parent="GridContainer"]
 margin_left = 181.0
 margin_right = 448.0
 margin_bottom = 27.0
@@ -50,14 +50,14 @@ margin_bottom = 27.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "0"
 
-[node name="Label2" type="Label" parent="GridContainer"]
+[node name="SfxVolumeLabel" type="Label" parent="GridContainer"]
 margin_top = 31.0
 margin_right = 177.0
 margin_bottom = 58.0
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SFX Volume"
 
-[node name="HSlider2" type="HSlider" parent="GridContainer"]
+[node name="SfxVolumeSlider" type="HSlider" parent="GridContainer"]
 margin_left = 181.0
 margin_top = 31.0
 margin_right = 448.0
@@ -73,7 +73,7 @@ size_flags_vertical = 5
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "0"
 
-[connection signal="focus_entered" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_entered"]
-[connection signal="focus_exited" from="GridContainer/HSlider" to="." method="_on_HSlider_focus_exited"]
-[connection signal="value_changed" from="GridContainer/HSlider" to="." method="_on_HSlider_value_changed"]
-[connection signal="value_changed" from="GridContainer/HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="focus_entered" from="GridContainer/MusicVolumeSlider" to="." method="_on_HSlider_focus_entered"]
+[connection signal="focus_exited" from="GridContainer/MusicVolumeSlider" to="." method="_on_HSlider_focus_exited"]
+[connection signal="value_changed" from="GridContainer/MusicVolumeSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="GridContainer/SfxVolumeSlider" to="." method="_on_HSlider2_value_changed"]

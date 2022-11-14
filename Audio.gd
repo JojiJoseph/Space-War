@@ -6,12 +6,12 @@ var updation_in_progress = true
 func _ready():
 	var music_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	var music_volume = db2linear(music_volume_db) * 100
-	$GridContainer/HSlider.value = music_volume
+	$GridContainer/MusicVolumeSlider.value = music_volume
 	$GridContainer/MusicVolume.text = str(int(music_volume))
 	
 	var sfx_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	var sfx_volume = db2linear(sfx_volume_db) * 100
-	$GridContainer/HSlider2.value = sfx_volume
+	$GridContainer/SfxVolumeSlider.value = sfx_volume
 	$GridContainer/SfxVolume.text = str(int(sfx_volume))
 	
 	updation_in_progress = false
